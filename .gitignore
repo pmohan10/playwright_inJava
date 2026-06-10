@@ -42,3 +42,7 @@ build/
 
 playwright-report/
 test-results/
+src/test/tests/NewTest.java
+src/test/tests/OrangeHRM_test.java
+src/test/java/base/
+src/test/java/orangeHRM/
