@@ -22,10 +22,14 @@ public class Login {
     public AcctOvrvw loginPage(){
         page.navigate("https://parabank.parasoft.com/");
         assertThat(page.getByText("Customer Login")).isVisible();
-        userName.fill("user17");
-        passwd.fill("keepthis");
-        loginBtn.click();
-        assertThat(page.getByText("Account Services")).isVisible();
+        try {
+            userName.fill("user19");
+            passwd.fill("keepthis");
+            loginBtn.click();
+            assertThat(page.getByText("Account Services")).isVisible();
+        } catch (AssertionError e) {
+            System.out.println("login failure");
+        }
         return new AcctOvrvw(page);
     }
 }

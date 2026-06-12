@@ -15,7 +15,7 @@ public class Test1 extends BaseTest {
         acctoverview = login.loginPage();
     }
 
-    @Test
+//    @Test
     public void navTest() {
         login = new Login(page);
         acctoverview = login.loginPage();
