@@ -6,7 +6,7 @@ import com.microsoft.playwright.options.AriaRole;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
-public class AcctOvrvw {
+public class AcctServices {
     private final Page page;
     private final Locator openNewAcct;
     private final Locator acctsOvrvw;
@@ -17,7 +17,7 @@ public class AcctOvrvw {
     private final Locator reqLoan;
     private final Locator logOut;
 
-    public AcctOvrvw(Page page) {
+    public AcctServices(Page page) {
         this.page = page;
         this.openNewAcct = page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Open New Account"));
         this.acctsOvrvw = page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Accounts Overview"));
@@ -34,14 +34,16 @@ public class AcctOvrvw {
         assertThat(page.getByRole(AriaRole.HEADING, new Page.GetByRoleOptions().setName("Open New Account"))).isVisible();
     }
 
-    public void goToAcctOverview() {
+    public AcctsOvrvw goToAcctOverview() {
         acctsOvrvw.click();
         assertThat(page.getByRole(AriaRole.HEADING, new Page.GetByRoleOptions().setName("Accounts Overview"))).isVisible();
+        return new AcctsOvrvw(page);
     }
 
-    public void goToTrnsfrFunds() {
+    public TrnsfrFunds goToTrnsfrFunds() {
         trnfrFnds.click();
         assertThat(page.getByRole(AriaRole.HEADING, new Page.GetByRoleOptions().setName("Transfer Funds"))).isVisible();
+        return new TrnsfrFunds(page);
     }
 
     public void goToBillPay() {
