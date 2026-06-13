@@ -18,7 +18,6 @@ public class Login {
         this.passwd = page.locator("[name=\"password\"]");
         this.loginBtn = page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Log In"));
     }
-// new comment added, as test
 
     public AcctOvrvw loginPage(){
         page.navigate("https://parabank.parasoft.com/");
